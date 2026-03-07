@@ -3,19 +3,35 @@ import { Link } from "@inertiajs/react";
 export default function ClientIndex({ conferences }) {
     return (
         <div>
-            <h2>Konferencijos</h2>
-            {conferences.map((c) => (
-                <div key={c.id} className="border">
-                    <h2>{c.title}</h2>
-                    <p>
-                        {c.date} - {c.location}
-                    </p>
-                    <Link href={`/client/conferences/${c.id}`}>View</Link>
-                    <Link href={`/client/conferences/${c.id}/register`}>
-                        Register
-                    </Link>
-                </div>
-            ))}
+            <h3 className="text-center text-3xl font-medium m-10">
+                Konferencijos
+            </h3>
+            <div className="flex flex-wrap gap-10 justify-center">
+                {conferences.map((c) => (
+                    <div
+                        key={c.id}
+                        className="w-100 h-25 bg-amber-200 rounded shadow p-3"
+                    >
+                        <h3 className="font-medium">{c.title}</h3>
+                        <p className="text-neutral-600">
+                            {c.date} - {c.location}
+                        </p>
+
+                        <Link
+                            href={`/client/conferences/${c.id}`}
+                            className="pr-3 underline text-amber-800 font-medium"
+                        >
+                            View
+                        </Link>
+                        <Link
+                            href={`/client/conferences/${c.id}/register`}
+                            className="pr-3 underline text-amber-800 font-medium"
+                        >
+                            Register
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

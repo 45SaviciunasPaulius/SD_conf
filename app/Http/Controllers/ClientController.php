@@ -39,8 +39,9 @@ class ClientController extends Controller
             ],
         ];
 
+        $filteredConf = collect($conferences)->where('status','planned');
 
-        return Inertia::render('Client/Index', ['conferences' => $conferences]);
+        return Inertia::render('Client/Index', ['conferences' => $filteredConf]);
     }
 
     /**
@@ -65,31 +66,31 @@ class ClientController extends Controller
     public function show(string $id)
     {
         $conferences = [
-            [
-                'id'          => 1,
-                'title'       => 'Tarptautinė IT konferencija 2025',
-                'description' => 'Modernios technologijos ir ateitis...',
-                'date'        => '2025-05-15',
-                'location'    => 'Vilnius, LITEXPO',
-                'status'      => 'planned', 
-            ],
-            [
-                'id'          => 2,
-                'title'       => 'Verslo inovacijos ir startuoliai',
-                'description' => 'Kaip pritraukti investicijas...',
-                'date'        => '2025-03-20',
-                'location'    => 'Kaunas, Žalgirio arena',
-                'status'      => 'planned',
-            ],
-            [
-                'id'          => 3,
-                'title'       => 'Duomenų mokslas ir AI',
-                'description' => 'Dirbtinis intelektas praktikoje...',
-                'date'        => '2024-11-10',
-                'location'    => 'Online',
-                'status'      => 'past',
-            ],
-        ];
+    [
+        'id'          => 1,
+        'title'       => 'Tarptautinė IT konferencija 2025',
+        'description' => 'Konferencija skirta naujausioms IT technologijoms, programinės įrangos kūrimui, kibernetiniam saugumui ir dirbtiniam intelektui. Dalyvaus pranešėjai iš įvairių šalių bei vyks praktinės dirbtuvės.',
+        'date'        => '2025-05-15',
+        'location'    => 'Vilnius, LITEXPO',
+        'status'      => 'planned', 
+    ],
+    [
+        'id'          => 2,
+        'title'       => 'Verslo inovacijos ir startuoliai',
+        'description' => 'Renginys skirtas startuolių kūrėjams, investuotojams ir verslo lyderiams. Bus aptariamos inovacijų strategijos, finansavimo galimybės ir sėkmingų startuolių istorijos.',
+        'date'        => '2025-03-20',
+        'location'    => 'Kaunas, Žalgirio arena',
+        'status'      => 'planned',
+    ],
+    [
+        'id'          => 3,
+        'title'       => 'Duomenų mokslas ir AI',
+        'description' => 'Online konferencija apie duomenų analizę, mašininį mokymąsi ir dirbtinio intelekto pritaikymą versle. Dalyviai galės išgirsti ekspertų pranešimus ir pamatyti realius projektų pavyzdžius.',
+        'date'        => '2024-11-10',
+        'location'    => 'Online',
+        'status'      => 'past',
+    ],
+];
 
         $conference = collect($conferences)->firstWhere('id', $id);
 

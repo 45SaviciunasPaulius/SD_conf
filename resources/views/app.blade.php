@@ -7,7 +7,7 @@
         @vite(['resources/js/app.jsx', 'resources/css/app.css'])
         @inertiaHead
     </head>
-    <body>
+    <body class="bg-amber-100">
         @inertia
     </body>
 </html>
