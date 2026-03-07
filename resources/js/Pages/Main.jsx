@@ -16,7 +16,7 @@ export default function Main() {
                     Client
                 </Link>
                 <Link
-                    href="/employee"
+                    href="/employee/conferences"
                     className="text-4xl bg-amber-500 w-80 h-80 flex rounded items-center justify-center hover:bg-amber-600 shadow-2xl font-medium"
                 >
                     Employee

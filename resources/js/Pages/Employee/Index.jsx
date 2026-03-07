@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react";
 
-export default function ClientIndex({ conferences }) {
+export default function EmployeeIndex({ conferences }) {
     return (
         <div>
             <h3 className="text-center text-3xl font-medium m-10">
@@ -10,24 +10,19 @@ export default function ClientIndex({ conferences }) {
                 {conferences.map((c) => (
                     <div
                         key={c.id}
-                        className="w-100 h-25 bg-amber-200 rounded shadow p-3"
+                        className={`w-100 h-30  rounded shadow p-3 ${c.status === "planned" ? "bg-amber-200" : "bg-neutral-400"}`}
                     >
                         <h3 className="font-medium">{c.title}</h3>
                         <p className="text-neutral-600">
                             {c.date} - {c.location}
                         </p>
+                        <p>Status: {c.status}</p>
 
                         <Link
-                            href={`/client/conferences/${c.id}`}
+                            href={`/employee/conferences/${c.id}`}
                             className="pr-3 underline text-amber-800 font-medium"
                         >
                             View
-                        </Link>
-                        <Link
-                            href={`/client/conferences/${c.id}/register`}
-                            className="pr-3 underline text-amber-800 font-medium"
-                        >
-                            Register
                         </Link>
                     </div>
                 ))}
