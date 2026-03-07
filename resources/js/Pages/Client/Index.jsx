@@ -1,8 +1,9 @@
 import { Link } from "@inertiajs/react";
+import MainLayout from "../../Layouts/MainLayout";
 
 export default function ClientIndex({ conferences }) {
     return (
-        <div>
+        <MainLayout>
             <h3 className="text-center text-3xl font-medium m-10">
                 Conferences
             </h3>
@@ -32,6 +33,6 @@ export default function ClientIndex({ conferences }) {
                     </div>
                 ))}
             </div>
-        </div>
+        </MainLayout>
     );
 }

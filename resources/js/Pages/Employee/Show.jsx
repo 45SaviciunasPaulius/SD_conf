@@ -1,8 +1,17 @@
 import { Link } from "@inertiajs/react";
+import MainLayout from "../../Layouts/MainLayout";
 
 export default function EmployeeShow({ conference, users }) {
     return (
-        <div className="flex flex-col justify-center m-20 w-full ">
+        <MainLayout className="flex flex-col justify-center m-20 w-full ">
+            <div className="self-center mb-10">
+                <Link
+                    href="/employee/conferences"
+                    className="pr-3 underline text-amber-800 font-medium text-xl"
+                >
+                    All conferences
+                </Link>
+            </div>
             {
                 <div
                     key={conference.id}
@@ -40,6 +49,6 @@ export default function EmployeeShow({ conference, users }) {
                     ))}
                 </div>
             </div>
-        </div>
+        </MainLayout>
     );
 }

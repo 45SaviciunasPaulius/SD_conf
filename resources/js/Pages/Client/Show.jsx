@@ -1,12 +1,21 @@
 import { Link } from "@inertiajs/react";
+import MainLayout from "../../Layouts/MainLayout";
 
 export default function ClientShow({ conference }) {
     return (
-        <div className="flex justify-center m-20">
+        <MainLayout className="flex justify-center m-3 flex-col">
+            <div className="self-center mb-10">
+                <Link
+                    href="/client/conferences"
+                    className="pr-3 underline text-amber-800 font-medium text-xl"
+                >
+                    All conferences
+                </Link>
+            </div>
             {
                 <div
                     key={conference.id}
-                    className="w-300 bg-amber-200 rounded shadow p-3 flex flex-col"
+                    className="w-300 bg-amber-200 rounded shadow p-3 flex flex-col self-center"
                 >
                     <h2 className="text-center text-2xl font-medium">
                         {conference.title}
@@ -25,6 +34,6 @@ export default function ClientShow({ conference }) {
                     </Link>
                 </div>
             }
-        </div>
+        </MainLayout>
     );
 }
