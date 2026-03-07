@@ -1,5 +1,5 @@
 import MainLayout from "../../../Layouts/MainLayout";
-import { useForm } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 
 export default function ConferenceEdit({ conference }) {
     const { data, setData, put, processing, errors } = useForm({
@@ -22,6 +22,14 @@ export default function ConferenceEdit({ conference }) {
 
     return (
         <MainLayout>
+            <div className="flex justify-center">
+                <Link
+                    href="/admin/conferences"
+                    className="underline text-amber-800 font-medium text-xl"
+                >
+                    All conferences
+                </Link>
+            </div>
             <div className="max-w-md mx-auto mt-10 p-6 bg-amber-200 rounded-xl shadow-md">
                 <h1 className="text-2xl font-bold mb-6 text-center">
                     Edit Conference

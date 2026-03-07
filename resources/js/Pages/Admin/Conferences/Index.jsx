@@ -4,9 +4,15 @@ import MainLayout from "../../../Layouts/MainLayout";
 export default function ConferencesIndex({ conferences }) {
     return (
         <MainLayout className="flex flex-col">
-            <h3 className="text-center text-3xl font-medium m-10">
+            <h3 className="text-center text-3xl font-medium mt-10">
                 Conferences
             </h3>
+            <Link
+                href="/admin"
+                className="underline text-amber-800 font-medium text-xl text-center m-3"
+            >
+                Admin panel
+            </Link>
             <Link
                 href="/admin/conferences/create"
                 className="pr-3 underline text-amber-800 font-medium self-center mb-10 text-lg"

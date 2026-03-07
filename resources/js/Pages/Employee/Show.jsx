@@ -35,19 +35,25 @@ export default function EmployeeShow({ conference, users }) {
                     Registered Users
                 </h3>
 
-                <div className="flex flex-row m-2">
-                    {users.map((user) => (
-                        <div
-                            key={user.id}
-                            className="bg-amber-300 rounded shadow m-1 p-1 w-90 "
-                        >
-                            <h2 className="font-medium">
-                                {user.name} {user.surname}
-                            </h2>
-                            <p>{user.email}</p>
-                        </div>
-                    ))}
-                </div>
+                {users && users.length > 0 ? (
+                    <div className="flex flex-row flex-wrap m-2">
+                        {users.map((user) => (
+                            <div
+                                key={user.id}
+                                className="bg-amber-300 rounded shadow m-1 p-1 w-90"
+                            >
+                                <h2 className="font-medium">
+                                    {user.name} {user.surname}
+                                </h2>
+                                <p>{user.email}</p>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-center text-neutral-600">
+                        No users registered yet.
+                    </p>
+                )}
             </div>
         </MainLayout>
     );

@@ -3,9 +3,15 @@ import MainLayout from "../../../Layouts/MainLayout";
 
 export default function UsersIndex({ users }) {
     return (
-        <MainLayout>
+        <MainLayout className="flex flex-col">
             <h2 className="font-medium text-2xl text-center m-5">All Users</h2>
-            <div className="flex flex-row m-2">
+            <Link
+                href="/admin"
+                className="underline text-amber-800 font-medium text-xl text-center"
+            >
+                Admin panel
+            </Link>
+            <div className="flex flex-row m-2 justify-center">
                 {users.map((user) => (
                     <div
                         key={user.id}

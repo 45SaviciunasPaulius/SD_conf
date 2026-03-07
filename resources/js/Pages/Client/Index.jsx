@@ -1,7 +1,14 @@
-import { Link } from "@inertiajs/react";
 import MainLayout from "../../Layouts/MainLayout";
+import { useForm } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 
 export default function ClientIndex({ conferences }) {
+    const { post, processing } = useForm();
+
+    const handleRegister = (id) => {
+        post(`/client/conferences/${id}/register`);
+    };
+
     return (
         <MainLayout>
             <h3 className="text-center text-3xl font-medium m-10">
@@ -24,12 +31,14 @@ export default function ClientIndex({ conferences }) {
                         >
                             View
                         </Link>
-                        <Link
-                            href={`/client/conferences/${c.id}/register`}
-                            className="pr-3 underline text-amber-800 font-medium"
+
+                        <button
+                            onClick={() => handleRegister(c.id)}
+                            disabled={processing}
+                            className="pr-3 underline text-amber-800 font-medium cursor-pointer"
                         >
                             Register
-                        </Link>
+                        </button>
                     </div>
                 ))}
             </div>
