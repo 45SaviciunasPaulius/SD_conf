@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreConferenceRequest;
-use App\Http\Requests\UpdateConferenceRequest;
+use App\Http\Requests\ConferenceRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -77,13 +76,9 @@ class ConferenceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreConferenceRequest $request)
+    public function store(ConferenceRequest $request)
     {
-        // Validation is automatically handled by StoreConferenceRequest
         $validated = $request->validated();
-
-        // In a real application, you would save to database here
-        // Conference::create($validated);
 
         return redirect()->route('admin.conferences.index')->with('success', 'Conference created successfully.');
     }
@@ -157,14 +152,9 @@ class ConferenceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateConferenceRequest $request, string $id)
+    public function update(ConferenceRequest $request, string $id)
     {
-        // Validation is automatically handled by UpdateConferenceRequest
         $validated = $request->validated();
-
-        // In a real application, you would update the database here
-        // $conference = Conference::findOrFail($id);
-        // $conference->update($validated);
 
         return redirect()->route('admin.conferences.index')->with('success', 'Conference updated successfully.');
     }
@@ -224,17 +214,9 @@ class ConferenceController extends Controller
 
         $conference = collect($conferences)->firstWhere('id', $id);
 
-        if (!$conference) {
-            return redirect()->route('admin.conferences.index')->with('error', 'Conference not found.');
-        }
-
-        // Check if conference is past
         if ($conference['status'] === 'past') {
             return redirect()->route('admin.conferences.index')->with('error', 'Cannot delete past conferences.');
         }
-
-        // In a real application, you would delete from database here
-        // Conference::findOrFail($id)->delete();
 
         return redirect()->route('admin.conferences.index')->with('success', 'Conference deleted successfully.');
     }
