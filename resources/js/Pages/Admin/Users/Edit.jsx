@@ -1,7 +1,9 @@
 import MainLayout from "../../../Layouts/MainLayout";
 import { Link, useForm } from "@inertiajs/react";
+import { useTranslation } from "react-i18next";
 
 export default function UserEdit({ user }) {
+    const { t } = useTranslation();
     const { data, setData, put, processing, errors } = useForm({
         id: user.id,
         name: user.name,
@@ -25,12 +27,12 @@ export default function UserEdit({ user }) {
                     href="/admin/users"
                     className="underline text-amber-800 font-medium text-xl"
                 >
-                    All users
+                    {t("All users")}
                 </Link>
             </div>
             <div className="max-w-md mx-auto mt-10 p-6 bg-amber-200 rounded-xl shadow-md">
                 <h1 className="text-2xl font-bold mb-6 text-center">
-                    Edit User
+                    {t("Edit User")}
                 </h1>
                 <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
@@ -38,7 +40,7 @@ export default function UserEdit({ user }) {
                             htmlFor="name"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            Name
+                            {t("Name")}
                         </label>
                         <input
                             type="text"
@@ -60,7 +62,7 @@ export default function UserEdit({ user }) {
                             htmlFor="surname"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            Surname
+                            {t("Surname")}
                         </label>
                         <input
                             type="text"
@@ -82,7 +84,7 @@ export default function UserEdit({ user }) {
                             htmlFor="email"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            Email
+                            {t("Email")}
                         </label>
                         <input
                             type="email"
@@ -104,7 +106,7 @@ export default function UserEdit({ user }) {
                         disabled={processing}
                         className="w-full py-2 px-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-md shadow-md"
                     >
-                        Submit
+                        {t("Submit")}
                     </button>
                 </form>
             </div>

@@ -1,23 +1,25 @@
 import { Link } from "@inertiajs/react";
 import MainLayout from "../../../Layouts/MainLayout";
+import { useTranslation } from "react-i18next";
 
 export default function ConferencesIndex({ conferences }) {
+    const { t } = useTranslation();
     return (
         <MainLayout className="flex flex-col">
             <h3 className="text-center text-3xl font-medium mt-10">
-                Conferences
+                {t("Conferences")}
             </h3>
             <Link
                 href="/admin"
                 className="underline text-amber-800 font-medium text-xl text-center m-3"
             >
-                Admin panel
+                {t("Admin panel")}
             </Link>
             <Link
                 href="/admin/conferences/create"
                 className="pr-3 underline text-amber-800 font-medium self-center mb-10 text-lg"
             >
-                Create new conference
+                {t("Create new conference")}
             </Link>
             <div className="flex flex-wrap gap-10 justify-center">
                 {conferences.map((c) => (
@@ -29,18 +31,18 @@ export default function ConferencesIndex({ conferences }) {
                         <p className="text-neutral-600">
                             {c.date} - {c.location}
                         </p>
-                        <p>Status: {c.status}</p>
+                        <p>{t("Status: ")}{c.status}</p>
                         {c.status == "planned" && (
                             <>
                                 <Link
                                     href={`/admin/conferences/${c.id}/edit`}
                                     className="pr-3 underline text-amber-800 font-medium self-center "
                                 >
-                                    Edit
+                                    {t("Edit")}
                                 </Link>
 
                                 <Link className="pr-3 underline text-red-500 font-medium self-center ">
-                                    Delete
+                                    {t("Delete")}
                                 </Link>
                             </>
                         )}

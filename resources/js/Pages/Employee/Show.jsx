@@ -1,7 +1,9 @@
 import { Link } from "@inertiajs/react";
 import MainLayout from "../../Layouts/MainLayout";
+import { useTranslation } from "react-i18next";
 
 export default function EmployeeShow({ conference, users }) {
+    const { t } = useTranslation();
     return (
         <MainLayout className="flex flex-col justify-center m-20 w-full ">
             <div className="self-center mb-10">
@@ -9,7 +11,7 @@ export default function EmployeeShow({ conference, users }) {
                     href="/employee/conferences"
                     className="pr-3 underline text-amber-800 font-medium text-xl"
                 >
-                    All conferences
+                    {t("All conferences")}
                 </Link>
             </div>
             {
@@ -24,7 +26,7 @@ export default function EmployeeShow({ conference, users }) {
                     <p className="text-center text-neutral-600">
                         {conference.date} - {conference.location}
                     </p>
-                    <p>Status: {conference.status}</p>
+                    <p>{t("Status: ")}{conference.status}</p>
                     <p className="w-200 flex self-center pt-5">
                         {conference.description}
                     </p>
@@ -32,7 +34,7 @@ export default function EmployeeShow({ conference, users }) {
             }
             <div className="w-300 bg-amber-200 rounded shadow p-3 self-center m-5">
                 <h3 className="text-center text-2xl font-medium">
-                    Registered Users
+                    {t("Registered Users")}
                 </h3>
 
                 {users && users.length > 0 ? (
@@ -51,7 +53,7 @@ export default function EmployeeShow({ conference, users }) {
                     </div>
                 ) : (
                     <p className="text-center text-neutral-600">
-                        No users registered yet.
+                        {t("No users registered yet.")}
                     </p>
                 )}
             </div>

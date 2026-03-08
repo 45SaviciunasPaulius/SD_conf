@@ -1,8 +1,10 @@
 import MainLayout from "../../Layouts/MainLayout";
 import { useForm } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
+import { useTranslation } from "react-i18next";
 
 export default function ClientShow({ conference }) {
+    const { t } = useTranslation();
     const { post, processing } = useForm();
 
     const handleRegister = () => {
@@ -16,7 +18,7 @@ export default function ClientShow({ conference }) {
                     href="/client/conferences"
                     className="pr-3 underline text-amber-800 font-medium text-xl"
                 >
-                    All conferences
+                    {t("All conferences")}
                 </Link>
             </div>
 
@@ -38,7 +40,7 @@ export default function ClientShow({ conference }) {
                     disabled={processing}
                     className="pr-3 underline text-amber-800 font-medium self-end cursor-pointer"
                 >
-                    Register
+                    {t("Register")}
                 </button>
             </div>
         </MainLayout>

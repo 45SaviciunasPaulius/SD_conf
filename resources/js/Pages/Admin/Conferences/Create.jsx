@@ -1,7 +1,9 @@
 import MainLayout from "../../../Layouts/MainLayout";
 import { useForm } from "@inertiajs/react";
+import { useTranslation } from "react-i18next";
 
 export default function ConferenceCreate() {
+    const { t } = useTranslation();
     const { data, setData, post, processing, errors } = useForm({
         title: "",
         date: "",
@@ -23,13 +25,13 @@ export default function ConferenceCreate() {
         <MainLayout>
             <div className="max-w-md mx-auto mt-10 p-6 bg-amber-200 rounded-xl shadow-md">
                 <h1 className="text-2xl font-bold mb-6 text-center">
-                    Create Conference
+                    {t("Create Conference")}
                 </h1>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Title
+                            {t("Title")}
                         </label>
                         <input
                             type="text"
@@ -47,7 +49,7 @@ export default function ConferenceCreate() {
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Date
+                            {t("Date")}
                         </label>
                         <input
                             type="date"
@@ -65,7 +67,7 @@ export default function ConferenceCreate() {
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Location
+                            {t("Location")}
                         </label>
                         <input
                             type="text"
@@ -83,7 +85,7 @@ export default function ConferenceCreate() {
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Description
+                            {t("Description")}
                         </label>
                         <textarea
                             name="description"
@@ -100,7 +102,7 @@ export default function ConferenceCreate() {
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Lectors
+                            {t("Lectors")}
                         </label>
                         <input
                             type="text"
@@ -121,7 +123,7 @@ export default function ConferenceCreate() {
                         disabled={processing}
                         className="w-full py-2 px-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-md shadow-md"
                     >
-                        Create
+                        {t("Create")}
                     </button>
                 </form>
             </div>

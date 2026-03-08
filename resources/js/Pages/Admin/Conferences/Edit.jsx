@@ -1,7 +1,9 @@
 import MainLayout from "../../../Layouts/MainLayout";
 import { Link, useForm } from "@inertiajs/react";
+import { useTranslation } from "react-i18next";
 
 export default function ConferenceEdit({ conference }) {
+    const { t } = useTranslation();
     const { data, setData, put, processing, errors } = useForm({
         id: conference.id,
         date: conference.date,
@@ -27,12 +29,12 @@ export default function ConferenceEdit({ conference }) {
                     href="/admin/conferences"
                     className="underline text-amber-800 font-medium text-xl"
                 >
-                    All conferences
+                    {t("All conferences")}
                 </Link>
             </div>
             <div className="max-w-md mx-auto mt-10 p-6 bg-amber-200 rounded-xl shadow-md">
                 <h1 className="text-2xl font-bold mb-6 text-center">
-                    Edit Conference
+                    {t("Edit Conference")}
                 </h1>
                 <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
@@ -40,7 +42,7 @@ export default function ConferenceEdit({ conference }) {
                             htmlFor="title"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            Title
+                            {t("Title")}
                         </label>
                         <input
                             type="text"
@@ -61,7 +63,7 @@ export default function ConferenceEdit({ conference }) {
                             htmlFor="date"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            Date
+                            {t("Date")}
                         </label>
                         <input
                             type="date"
@@ -82,7 +84,7 @@ export default function ConferenceEdit({ conference }) {
                             htmlFor="location"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            Location
+                            {t("Location")}
                         </label>
                         <input
                             type="text"
@@ -104,7 +106,7 @@ export default function ConferenceEdit({ conference }) {
                             htmlFor="description"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            Description
+                            {t("Description")}
                         </label>
                         <textarea
                             id="description"
@@ -125,7 +127,7 @@ export default function ConferenceEdit({ conference }) {
                             htmlFor="lectors"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            Lectors
+                            {t("Lectors")}
                         </label>
                         <input
                             type="text"
@@ -147,7 +149,7 @@ export default function ConferenceEdit({ conference }) {
                         disabled={processing}
                         className="w-full py-2 px-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-md shadow-md"
                     >
-                        Submit
+                        {t("Submit")}
                     </button>
                 </form>
             </div>
