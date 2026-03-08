@@ -64,7 +64,7 @@ export default function ConferencesIndex({ conferences }) {
                                     href={`/admin/conferences/${c.id}`}
                                     method="delete"
                                     as="button"
-                                    className="pr-3 underline text-red-500 font-medium"
+                                    className="pr-3 underline text-red-500 font-medium cursor-pointer"
                                 >
                                     {t("Delete")}
                                 </Link>
