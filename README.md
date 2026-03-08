@@ -37,6 +37,7 @@ Open: http://127.0.0.1:8000
 - JavaScript
 - CSS
 - TailWind
+- i18n
 
 ### Made for requirements
 
