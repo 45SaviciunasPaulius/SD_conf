@@ -18,7 +18,6 @@ No login, no real database – everything uses mock data.
 ### How to run
 
 1. Clone repo  
-   `git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git`
 
 2. Install packages  
    `composer install`  
