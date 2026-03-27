@@ -1,3 +1,4 @@
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import MainLayout from "../../../Layouts/MainLayout";
 import { useForm } from "@inertiajs/react";
 import { useTranslation } from "react-i18next";
@@ -22,7 +23,7 @@ export default function ConferenceCreate() {
     };
 
     return (
-        <MainLayout>
+        <AuthenticatedLayout>
             <div className="max-w-md mx-auto mt-10 p-6 bg-amber-200 rounded-xl shadow-md">
                 <h1 className="text-2xl font-bold mb-6 text-center">
                     {t("Create Conference")}
@@ -127,6 +128,6 @@ export default function ConferenceCreate() {
                     </button>
                 </form>
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }

@@ -1,3 +1,4 @@
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import MainLayout from "../../../Layouts/MainLayout";
 import { Link, useForm } from "@inertiajs/react";
 import { useTranslation } from "react-i18next";
@@ -21,7 +22,7 @@ export default function UserEdit({ user }) {
     };
 
     return (
-        <MainLayout>
+        <AuthenticatedLayout>
             <div className="flex justify-center">
                 <Link
                     href="/admin/users"
@@ -110,6 +111,6 @@ export default function UserEdit({ user }) {
                     </button>
                 </form>
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }

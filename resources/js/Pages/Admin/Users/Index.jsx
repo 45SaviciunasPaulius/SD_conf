@@ -1,12 +1,15 @@
 import { Link } from "@inertiajs/react";
 import MainLayout from "../../../Layouts/MainLayout";
 import { useTranslation } from "react-i18next";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function UsersIndex({ users }) {
     const { t } = useTranslation();
     return (
-        <MainLayout className="flex flex-col">
-            <h2 className="font-medium text-2xl text-center m-5">{t("All Users")}</h2>
+        <AuthenticatedLayout className="flex flex-col">
+            <h2 className="font-medium text-2xl text-center m-5">
+                {t("All Users")}
+            </h2>
             <Link
                 href="/admin"
                 className="underline text-amber-800 font-medium text-xl text-center"
@@ -32,6 +35,6 @@ export default function UsersIndex({ users }) {
                     </div>
                 ))}
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }

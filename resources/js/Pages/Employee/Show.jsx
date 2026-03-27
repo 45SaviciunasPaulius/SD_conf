@@ -1,11 +1,12 @@
 import { Link } from "@inertiajs/react";
 import MainLayout from "../../Layouts/MainLayout";
 import { useTranslation } from "react-i18next";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function EmployeeShow({ conference, users }) {
     const { t } = useTranslation();
     return (
-        <MainLayout className="flex flex-col justify-center m-20 w-full ">
+        <AuthenticatedLayout className="flex flex-col justify-center m-20 w-full ">
             <div className="self-center mb-10">
                 <Link
                     href="/employee/conferences"
@@ -26,7 +27,10 @@ export default function EmployeeShow({ conference, users }) {
                     <p className="text-center text-neutral-600">
                         {conference.date} - {conference.location}
                     </p>
-                    <p>{t("Status: ")}{conference.status}</p>
+                    <p>
+                        {t("Status: ")}
+                        {conference.status}
+                    </p>
                     <p className="w-200 flex self-center pt-5">
                         {conference.description}
                     </p>
@@ -57,6 +61,6 @@ export default function EmployeeShow({ conference, users }) {
                     </p>
                 )}
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }

@@ -1,3 +1,4 @@
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import MainLayout from "../../../Layouts/MainLayout";
 import { Link, useForm } from "@inertiajs/react";
 import { useTranslation } from "react-i18next";
@@ -23,7 +24,7 @@ export default function ConferenceEdit({ conference }) {
     };
 
     return (
-        <MainLayout>
+        <AuthenticatedLayout>
             <div className="flex justify-center">
                 <Link
                     href="/admin/conferences"
@@ -153,6 +154,6 @@ export default function ConferenceEdit({ conference }) {
                     </button>
                 </form>
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }

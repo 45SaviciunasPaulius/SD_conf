@@ -1,11 +1,12 @@
 import { Link } from "@inertiajs/react";
 import MainLayout from "../../Layouts/MainLayout";
 import { useTranslation } from "react-i18next";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function AdminIndex() {
     const { t } = useTranslation();
     return (
-        <MainLayout>
+        <AuthenticatedLayout>
             <div className="grid grid-cols-2 place-items-center m-20">
                 <Link
                     href="/admin/users"
@@ -20,6 +21,6 @@ export default function AdminIndex() {
                     {t("Conferences")}
                 </Link>
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }

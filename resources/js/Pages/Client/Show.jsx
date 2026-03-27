@@ -1,3 +1,4 @@
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import MainLayout from "../../Layouts/MainLayout";
 import { useForm } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
@@ -12,7 +13,7 @@ export default function ClientShow({ conference }) {
     };
 
     return (
-        <MainLayout className="flex justify-center m-3 flex-col">
+        <AuthenticatedLayout className="flex justify-center m-3 flex-col">
             <div className="self-center mb-10">
                 <Link
                     href="/client/conferences"
@@ -43,6 +44,6 @@ export default function ClientShow({ conference }) {
                     {t("Register")}
                 </button>
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }

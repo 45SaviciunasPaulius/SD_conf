@@ -1,3 +1,4 @@
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import MainLayout from "../../Layouts/MainLayout";
 import { useForm } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
@@ -12,7 +13,7 @@ export default function ClientIndex({ conferences }) {
     };
 
     return (
-        <MainLayout>
+        <AuthenticatedLayout>
             <h3 className="text-center text-3xl font-medium m-10">
                 {t("Conferences")}
             </h3>
@@ -44,6 +45,6 @@ export default function ClientIndex({ conferences }) {
                     </div>
                 ))}
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }

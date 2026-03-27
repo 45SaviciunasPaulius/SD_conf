@@ -1,11 +1,12 @@
 import { Link } from "@inertiajs/react";
 import MainLayout from "../../Layouts/MainLayout";
 import { useTranslation } from "react-i18next";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function EmployeeIndex({ conferences }) {
     const { t } = useTranslation();
     return (
-        <MainLayout>
+        <AuthenticatedLayout>
             <h3 className="text-center text-3xl font-medium m-10">
                 {t("Conferences")}
             </h3>
@@ -30,6 +31,6 @@ export default function EmployeeIndex({ conferences }) {
                     </div>
                 ))}
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }

@@ -1,13 +1,14 @@
 import { Link, usePage } from "@inertiajs/react";
 import MainLayout from "../../../Layouts/MainLayout";
 import { useTranslation } from "react-i18next";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function ConferencesIndex({ conferences }) {
     const { t } = useTranslation();
     const { errors } = usePage().props;
 
     return (
-        <MainLayout className="flex flex-col">
+        <AuthenticatedLayout className="flex flex-col">
             <h3 className="text-center text-3xl font-medium mt-10">
                 {t("Conferences")}
             </h3>
@@ -73,6 +74,6 @@ export default function ConferencesIndex({ conferences }) {
                     </div>
                 ))}
             </div>
-        </MainLayout>
+        </AuthenticatedLayout>
     );
 }
