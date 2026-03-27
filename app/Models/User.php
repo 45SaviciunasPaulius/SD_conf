@@ -47,4 +47,8 @@ class User extends Authenticatable
             'role' => Role::class,
         ];
     }
+
+    public function conferences(){
+        return $this->hasMany(Conference::class);
+    }
 }
