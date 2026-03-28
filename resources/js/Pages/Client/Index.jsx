@@ -1,6 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import MainLayout from "../../Layouts/MainLayout";
-import { useForm } from "@inertiajs/react";
+import { useForm, usePage } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
 import { useTranslation } from "react-i18next";
 
@@ -17,6 +17,7 @@ export default function ClientIndex({ conferences }) {
             <h3 className="text-center text-3xl font-medium m-10">
                 {t("Conferences")}
             </h3>
+
             <div className="flex flex-wrap gap-10 justify-center">
                 {conferences.map((c) => (
                     <div
@@ -27,7 +28,7 @@ export default function ClientIndex({ conferences }) {
                         <p className="text-neutral-600">
                             {c.date} - {c.location}
                         </p>
-
+                        <h3 className="font-medium">{c.lectors}</h3>
                         <Link
                             href={`/client/conferences/${c.id}`}
                             className="pr-3 underline text-amber-800 font-medium"

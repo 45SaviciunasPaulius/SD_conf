@@ -10,6 +10,7 @@ export default function UserEdit({ user }) {
         name: user.name,
         surname: user.surname,
         email: user.email,
+        role: user.role,
     });
 
     const handleChange = (e) => {
@@ -76,6 +77,32 @@ export default function UserEdit({ user }) {
                         {errors.surname && (
                             <div className="text-red-500 text-sm">
                                 {errors.surname}
+                            </div>
+                        )}
+                    </div>
+
+                    <div>
+                        <label
+                            htmlFor="role"
+                            className="block text-sm font-medium text-gray-700"
+                        >
+                            {t("Role")}
+                        </label>
+                        <select
+                            type="dropdown"
+                            id="role"
+                            name="role"
+                            value={data.role}
+                            onChange={handleChange}
+                            className="mt-1 block w-full px-4 py-2 rounded-md shadow-sm outline-none bg-amber-100"
+                        >
+                            <option value="client">Client</option>
+                            <option value="employee">Employee</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        {errors.role && (
+                            <div className="text-red-500 text-sm">
+                                {errors.role}
                             </div>
                         )}
                     </div>

@@ -53,7 +53,7 @@ export default function ConferenceCreate() {
                             {t("Date")}
                         </label>
                         <input
-                            type="date"
+                            type="datetime-local"
                             name="date"
                             value={data.date}
                             onChange={handleChange}

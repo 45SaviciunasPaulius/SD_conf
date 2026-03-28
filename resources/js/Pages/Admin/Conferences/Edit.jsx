@@ -67,7 +67,7 @@ export default function ConferenceEdit({ conference }) {
                             {t("Date")}
                         </label>
                         <input
-                            type="date"
+                            type="datetime-local"
                             id="date"
                             name="date"
                             value={data.date}

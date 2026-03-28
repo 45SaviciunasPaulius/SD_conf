@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -12,26 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-       $users = [
-    [
-        'id'       => 1,
-        'name'     => 'Jonas',
-        'surname'  => 'Petraitis',
-        'email'    => 'jonas.petraitis@example.com',
-    ],
-    [
-        'id'       => 2,
-        'name'     => 'Aistė',
-        'surname'  => 'Kazlauskaitė',
-        'email'    => 'aiste.kazlauskaite@example.com',
-    ],
-    [
-        'id'       => 3,
-        'name'     => 'Marius',
-        'surname'  => 'Laužikas',
-        'email'    => 'marius.lauzikas@example.com',
-    ],
-];
+       $users = User::all();
 
    return Inertia::render('Admin/Users/Index', ['users' => $users]);
     }
@@ -65,28 +47,8 @@ class UsersController extends Controller
      */
     public function edit(string $id)
     {
-        $users = [
-    [
-        'id'       => 1,
-        'name'     => 'Jonas',
-        'surname'  => 'Petraitis',
-        'email'    => 'jonas.petraitis@example.com',
-    ],
-    [
-        'id'       => 2,
-        'name'     => 'Aistė',
-        'surname'  => 'Kazlauskaitė',
-        'email'    => 'aiste.kazlauskaite@example.com',
-    ],
-    [
-        'id'       => 3,
-        'name'     => 'Marius',
-        'surname'  => 'Laužikas',
-        'email'    => 'marius.lauzikas@example.com',
-    ],
-];
 
-$user = collect($users)->firstWhere('id', $id);
+$user = User::firstWhere('id', $id);
 
    return Inertia::render('Admin/Users/Edit', ['user' => $user]);
     }
@@ -96,37 +58,18 @@ $user = collect($users)->firstWhere('id', $id);
      */
     public function update(Request $request, string $id)
     {
-         $users = [
-    [
-        'id'       => 1,
-        'name'     => 'Jonas',
-        'surname'  => 'Petraitis',
-        'email'    => 'jonas.petraitis@example.com',
-    ],
-    [
-        'id'       => 2,
-        'name'     => 'Aistė',
-        'surname'  => 'Kazlauskaitė',
-        'email'    => 'aiste.kazlauskaite@example.com',
-    ],
-    [
-        'id'       => 3,
-        'name'     => 'Marius',
-        'surname'  => 'Laužikas',
-        'email'    => 'marius.lauzikas@example.com',
-    ],
-];
 
     $validate = $request->validate([
         'name' => ['required'],
         'surname' => ['required'],
-        'email' => ['required']
+        'email' => ['required'],
+        'role' => ['required'],
     ]);
 
+    $user = User::firstWhere('id', $id);
+    $user->update($validate);
 
-    // dd($validate);
-
-    return Inertia::render('Admin/Users/Index', ['users' => $users]);
+    return redirect()->route('admin.users.index')->with('success', 'User updated successfully.');
 
     }
 
