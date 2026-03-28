@@ -1,5 +1,4 @@
 import { Link } from "@inertiajs/react";
-import MainLayout from "../../../Layouts/MainLayout";
 import { useTranslation } from "react-i18next";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
@@ -16,7 +15,7 @@ export default function UsersIndex({ users }) {
             >
                 {t("Admin panel")}
             </Link>
-            <div className="flex flex-row m-2 justify-center">
+            <div className="flex flex-row m-2 justify-center flex-wrap">
                 {users.map((user) => (
                     <div
                         key={user.id}

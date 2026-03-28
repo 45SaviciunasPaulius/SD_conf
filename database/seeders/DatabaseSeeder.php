@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Conference;
+use App\Models\Registry;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,11 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        User::factory()->count(10)->create();
+        Conference::factory()->count(50)->create();
+        Registry::factory()->count(100)->create();
     }
 }

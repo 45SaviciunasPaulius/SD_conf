@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Registry extends Model
 {
-      protected $fillable = [
+    use HasFactory;
+
+    protected $fillable = [
         'user_id',
         'conference_id',
     ];
-
 }

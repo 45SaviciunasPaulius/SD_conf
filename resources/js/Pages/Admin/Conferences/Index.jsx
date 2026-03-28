@@ -1,5 +1,4 @@
 import { Link, usePage } from "@inertiajs/react";
-import MainLayout from "../../../Layouts/MainLayout";
 import { useTranslation } from "react-i18next";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
