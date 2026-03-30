@@ -19,11 +19,7 @@ export default function EmployeeIndex({ conferences }) {
                         <p className="text-neutral-600">
                             {c.date} - {c.location}
                         </p>
-                        <p>
-                            {t("Status: ")}
-                            {c.status}
-                        </p>
-
+                        <h3 className="font-medium">{c.lectors}</h3>
                         <Link
                             href={`/employee/conferences/${c.id}`}
                             className="pr-3 underline text-amber-800 font-medium"

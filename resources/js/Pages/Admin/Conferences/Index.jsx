@@ -51,7 +51,7 @@ export default function ConferencesIndex({ conferences }) {
                             {t("Status: ")}
                             {c.status}
                         </p> */}
-
+                        <h3 className="font-medium">{c.lectors}</h3>
                         {new Date(c.date) >=
                             new Date(new Date().setHours(0, 0, 0, 0)) && (
                             <>

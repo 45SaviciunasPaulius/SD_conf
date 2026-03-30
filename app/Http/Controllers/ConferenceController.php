@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ConferenceRequest;
 use App\Models\Conference;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -15,7 +14,7 @@ class ConferenceController extends Controller
      */
     public function index()
     {
-        $conferences = Conference::all();
+        $conferences = Conference::latest('date')->get();
 
         return Inertia::render('Admin/Conferences/Index', ['conferences' => $conferences]);
     }
@@ -87,6 +86,7 @@ class ConferenceController extends Controller
         }
 
         $conference->delete();
+
         return redirect()->route('admin.conferences.index')->with('success', 'Conference deleted successfully.');
     }
 }

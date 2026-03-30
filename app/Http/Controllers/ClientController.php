@@ -17,7 +17,7 @@ class ClientController extends Controller
     public function index()
     {
 
-        $filteredConf = Conference::where('date', '>=', Carbon::today())->get();
+        $filteredConf = Conference::where('date', '>=', Carbon::today())->latest('date')->get();
 
         return Inertia::render('Client/Index', ['conferences' => $filteredConf]);
     }

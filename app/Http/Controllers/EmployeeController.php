@@ -15,7 +15,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $conferences = Conference::all();
+        $conferences = Conference::latest('date')->get();
 
         return Inertia::render('Employee/Index', ['conferences' => $conferences]);
     }
