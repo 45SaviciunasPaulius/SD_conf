@@ -35,7 +35,8 @@ export default function ConferencesIndex({ conferences }) {
                     <div
                         key={c.id}
                         className={`w-100 h-30 rounded shadow p-3 ${
-                            c.status === "planned"
+                            new Date(c.date) >=
+                            new Date(new Date().setHours(0, 0, 0, 0))
                                 ? "bg-amber-200"
                                 : "bg-neutral-400"
                         }`}
@@ -45,13 +46,14 @@ export default function ConferencesIndex({ conferences }) {
                         <p className="text-neutral-600">
                             {c.date} - {c.location}
                         </p>
-
+                        {/* 
                         <p>
                             {t("Status: ")}
                             {c.status}
-                        </p>
+                        </p> */}
 
-                        {c.status === "planned" && (
+                        {new Date(c.date) >=
+                            new Date(new Date().setHours(0, 0, 0, 0)) && (
                             <>
                                 <Link
                                     href={`/admin/conferences/${c.id}/edit`}
